@@ -1,5 +1,5 @@
 ## PHP and PowerShell Password Portal
-A combination of PHP and PowerShell script to allow users to change their Active Directory passwords.  This is NOT a self-service password reset tool.  The user must know their current username and password and this tool will allow them to change it.  Created on IIS 7.5 (2008 R2) using PowerShell 3.0 and PHP 5.6.  Also uses a MySQL database (built on MySQL 5.7) for logging of attempts and IP addresses (in addition to local text file log).
+A combination of PHP and PowerShell scripts to allow users to change their Active Directory passwords.  This is NOT a self-service password reset tool.  The user must know their current username and password and this tool will allow them to change it.  Created on IIS 7.5 (2008 R2) using PowerShell 3.0 and PHP 5.6.  Also uses a MySQL database (built on MySQL 5.7) for logging of attempts and IP addresses (in addition to local text file log).
 
 ## Features
 - Does not require any extravagant permissions to IIS or AD.  Passwords are changed by specifying a **correct** current password.  Therefore the users are basically changing their passwords themselves and only an account with read access to AD is required.

@@ -7,16 +7,18 @@ A combination of PHP and PowerShell scripts to allow users to change their Activ
 - Escaping of all potentially hazardous/malicious username and password characters passed between web and powershell.
 - Logging of web attempts to MySQL database along with lockouts after X and Y number of attempts per IP.  e.g. After X attempts in an hour or Y attempts per day they are locked out from making further requests.
 - Logging of PowerShell script executions to text file.
+- (Optional) Extra security by code-signing powershell script.
 
 ## Setup
-1. Verify PowerShell and PHP are installed and working under IIS.
+1. Verify PowerShell, PHP, and MySQL are installed and working under IIS.
+1. The computer this is running on will need to be a member of the AD forest.
 1. Create an Active Directory user that has rights to **READ** (NOT write) to your AD forest.  e.g. Just create a new user and give it no additional access.
 1. Create a new Application Pool in IIS and set it to run as this new user.
 1. Create a folder in IIS (virtual or physical) and convert it to an application.  Set it to run under the newly created application pool.
-1. Place the PHP script in this folder.
+1. Place the PHP\*.* files in this folder.
 1. Place the PowerShell script anywhere you want.  I suppose for extra security it should be placed outside of your web site structure.
 1. Create a "change_password.log" next to the powershell script and give your application pool user access to write to it.
 1. Import the SQL to setup your database and tables.
 1. Edit the PHP script and supply database username and password and correct pathing to the PowerShell script.
-
+1. Edit the powershell script and supply two global catalog servers (GC1 and GC2) as well as the FQDN of your root domain (used for verification of user DN upon retrieval).  Also modify min_password_length if necessary.
 
